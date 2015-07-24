@@ -1,0 +1,27 @@
+/*
+Theme Name: Child Theme
+Theme URI: https://wordpress.org/themes/childtheme/
+Author: Anurag
+Author URI: https://www.anuragsingh.me/
+Template: twentyfifteen
+Description: A very simple child theme to start-up a new wordpress project.
+Version: 0.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: Child Theme
+Text Domain: childtheme
+*/
+
+body{
+	background: none;
+}
+
+#primary {
+	margin-top: 25px;
+	padding: 15px;
+	background-color: gray;
+}
+
+.carousel-caption {
+	color: red;
+}
