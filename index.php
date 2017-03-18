@@ -1,3 +1,4 @@
+<h1>index</h1>
 <?php get_header(); ?>
 
 <section class="container">

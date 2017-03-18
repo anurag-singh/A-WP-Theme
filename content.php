@@ -1,4 +1,4 @@
-
+<h1>content</h1>
 			
   				<article id="posts-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<?php

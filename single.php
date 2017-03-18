@@ -1,3 +1,4 @@
+<h1>single</h1>
 <?php
 /**
  * The template for displaying all single posts and attachments

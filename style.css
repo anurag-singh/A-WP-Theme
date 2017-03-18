@@ -1,27 +1,59 @@
 /*
-Theme Name: Child Theme
+Theme Name: WP Child Theme
 Theme URI: https://wordpress.org/themes/childtheme/
 Author: Anurag
-Author URI: https://www.anuragsingh.me/
+Author URI: https://www.wordpress.org/
 Template: twentyseventeen
-Description: A very simple child theme to start-up a new wordpress project.
+Description: A very simple child theme to start-up a new wordpress project, based on bootstrap.
 Version: 0.1
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: Child Theme
-Text Domain: childtheme
+Tags: 
+Text Domain: 
 */
 
-body{
-	background: none;
+/* font-family: 'Just Another Hand', cursive;
+font-family: 'Open Sans', sans-serif;
+ */
+body {
+  padding-bottom: 0;
+  padding-top: 6.5rem !important;
+}
+a.nav-link {
+	color: #0275d !important;
+}
+nav, footer {
+  background-color: #fff !important;
+  /*ffce00;*/
 }
 
-#primary {
-	margin-top: 25px;
-	padding: 15px;
-	background-color: gray;
+.entry-header {
+  background-color: #ffce00 !important;
+}
+
+h1,h2,h3,h4,h5 {
+  /* font-family: 'Just Another Hand', cursive; */
+}
+/*
+article.one {
+    background-color: #9af000 !important;
+}*/
+
+#client-testimonials {
+  background-color: #b610bf !important;
+  color: #fff;
+}
+
+.carousel-item {
+  background-color: #fff !important;
 }
 
 .carousel-caption {
-	color: red;
+  color: #ddd;
+}
+
+blockquote footer{
+    background-color: transparent !important;
+}
+
+footer {
+  background-color: #ffce00 !important;
 }
