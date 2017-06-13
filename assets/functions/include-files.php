@@ -1,6 +1,7 @@
 <?php 
 
 require "new-cpt.php";
+require "wp-hooks.php";
 // require "setting-page.php";
 
 
