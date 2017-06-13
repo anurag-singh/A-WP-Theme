@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="assets/images/favicon.ico">
-    <title>Digital Adhyayan</title>
+    <title><?php echo get_bloginfo('name'); ?></title>
     <!-- Bootstrap core CSS -->
     <!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet"> -->
     <!-- Custom styles for this template -->
