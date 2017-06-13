@@ -23,6 +23,13 @@ jQuery(document).ready(function() {
 	// jQuery('#carouselTestimonials').carousel({
 	//   interval: 500
 	// })
+	
+	// Find and replace Whole word with new one
+// Would replace the word egg, as a word boundary. So should replace egg but not eggplant.
+jQuery("span").text(function () {
+    return jQuery(this).text().replace(/\bContactta drd\b/, "Home");
+});
+	
 
 });
 
