@@ -40,10 +40,10 @@
     </div>
     <div class="row pt-2">
         <div class="col-12">
-            <p class="text-center">&copy; 2017 Digital Adhyayan &middot;</p>
+            <p class="text-center">&copy; 2017 Company Name &middot;</p>
         </div>
         <div class="col-12">
-            <p class="text-center">Developed by <a href="#">Anurag Singh</a></p>
+            <p class="text-center">Developed by <a href="#">Developer Name</a></p>
         </div>
         <div class="col-12">
             <?php 
