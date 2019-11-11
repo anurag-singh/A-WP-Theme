@@ -1,42 +1,42 @@
 /*
-Theme Name: As Theme 
+Theme Name: A WP Theme 
 Theme URI: #
 Author: Anurag
 Author URI: https://github.com/anurag-singh/
-Description: Minimal WP theme
+Description: A WP theme
 Version: 1.0
-Text Domain: as-theme
+Text Domain: a-wp-theme
 */
 .bg-primary, .btn-primary {
             background-color: #a2c046 !important;
         }
 
-        .btn-primary {
-            border-color: #a2c046 !important;
-        }
+.btn-primary {
+    border-color: #a2c046 !important;
+}
 
-          .card-img-as {
-            height: 60%;
-            position: relative;
-            overflow: hidden;
-            
-            margin-left: 25%;
-            margin-right: 25%;
-            /* margin-left: 60px;
-            margin-right: 60px; */
-            margin-top: -60px;
-            border-radius: 6px;
-            box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
-        }
-        .card-img-as img {
-            width: 100%;
-            height: 100%;
-            border-radius: 6px;
-            pointer-events: none;
-        }
+    .card-img-as {
+    height: 60%;
+    position: relative;
+    overflow: hidden;
+    
+    margin-left: 25%;
+    margin-right: 25%;
+    /* margin-left: 60px;
+    margin-right: 60px; */
+    margin-top: -60px;
+    border-radius: 6px;
+    box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+.card-img-as img {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    pointer-events: none;
+}
 
-        .text-img-overlay{
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-        }
+.text-img-overlay{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
