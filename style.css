@@ -1,59 +1,42 @@
 /*
-Theme Name: WP Child Theme
-Theme URI: https://wordpress.org/themes/childtheme/
+Theme Name: As Theme 
+Theme URI: #
 Author: Anurag
-Author URI: https://www.wordpress.org/
-Template: twentyseventeen
-Description: A very simple child theme to start-up a new wordpress project, based on bootstrap.
-Version: 0.1
-Tags: 
-Text Domain: 
+Author URI: https://github.com/anurag-singh/
+Description: Minimal WP theme
+Version: 1.0
+Text Domain: as-theme
 */
+.bg-primary, .btn-primary {
+            background-color: #a2c046 !important;
+        }
 
-/* font-family: 'Just Another Hand', cursive;
-font-family: 'Open Sans', sans-serif;
- */
-body {
-  padding-bottom: 0;
-  padding-top: 6.5rem !important;
-}
-a.nav-link {
-	color: #0275d !important;
-}
-nav, footer {
-  background-color: #fff !important;
-  /*ffce00;*/
-}
+        .btn-primary {
+            border-color: #a2c046 !important;
+        }
 
-.entry-header {
-  background-color: #ffce00 !important;
-}
+          .card-img-as {
+            height: 60%;
+            position: relative;
+            overflow: hidden;
+            
+            margin-left: 25%;
+            margin-right: 25%;
+            /* margin-left: 60px;
+            margin-right: 60px; */
+            margin-top: -60px;
+            border-radius: 6px;
+            box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+        }
+        .card-img-as img {
+            width: 100%;
+            height: 100%;
+            border-radius: 6px;
+            pointer-events: none;
+        }
 
-h1,h2,h3,h4,h5 {
-  /* font-family: 'Just Another Hand', cursive; */
-}
-/*
-article.one {
-    background-color: #9af000 !important;
-}*/
-
-#client-testimonials {
-  background-color: #b610bf !important;
-  color: #fff;
-}
-
-.carousel-item {
-  background-color: #fff !important;
-}
-
-.carousel-caption {
-  color: #ddd;
-}
-
-blockquote footer{
-    background-color: transparent !important;
-}
-
-footer {
-  background-color: #ffce00 !important;
-}
+        .text-img-overlay{
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }

@@ -1,15 +1,13 @@
-<?php get_header(); ?>
-<?php get_template_part( 'template-parts/page/front-page', 'carousel' ); ?>
+<?php get_header(); 
 
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-    <div class="marketing">
-        <hr class="featurette-divider">
-        <?php //get_template_part( 'template-parts/page/front-page', '3col-services' ); ?>
-        <hr class="featurette-divider">
-        <?php get_template_part( 'template-parts/page/front-page', 'half-image-half-text' ); ?>
-        <?php get_template_part( 'template-parts/page/front-page', 'youtube-video' ); ?>
-        <?php get_template_part( 'template-parts/page/front-page', 'client-testimonials' ); ?>
-    </div>
-    <?php get_footer(); ?>
+get_template_part( 'template-parts/front-page', 'section-1' );
+get_template_part( 'template-parts/front-page', 'section-2' );
+get_template_part( 'template-parts/front-page', 'section-3' );
+get_template_part( 'template-parts/front-page', 'section-4' );
+get_template_part( 'template-parts/front-page', 'section-5' );
+get_template_part( 'template-parts/front-page', 'section-6' );
+get_template_part( 'template-parts/front-page', 'section-7' );
+get_template_part( 'template-parts/front-page', 'section-8' );
+get_template_part( 'template-parts/front-page', 'section-9' );
+
+get_footer(); ?>

@@ -1,60 +1,101 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+
+/**
+ * The header for our theme
+ *
+ * This is the template that displays all of the <head> section and everything up until <div id="content">
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ */
+
+?>
+<!doctype html>
+<html <?php language_attributes(); ?>>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title><?php echo get_bloginfo('name'); ?></title>
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+
     <?php wp_head(); ?>
 </head>
 
-<body>
-    <nav class="navbar navbar-toggleable-md navbar-light fixed-top" style="background-color: #e3f2fd;">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="#">
-            <?php the_custom_logo(); ?>
-        </a>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="mr-auto"></div>
-            <div class="links">
+<body data-spy="scroll" data-target=".navbar" data-offset="90">
+
+    <header>
+        <section class="bg-primary">
+            <div class="container bg-primary pt-2">
+                <div class="row">
+                    <div class="col">
+                        <ul class="list-inline ">
+                            <li class="list-inline-item">
+                                <a href="tel:8003857105" class="text-white">
+                                    <i class="fas fa-phone-alt fa-fw"></i>
+                                    800-385-7105
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="mailto:info@frenviro.com" class="text-white">
+                                    <i class="fas fa-envelope fa-fw"></i>
+                                    info@frenviro.com
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container pt-4">
+            <div class="row">
+                <div class="col-9">
+                    <figure>
+                        <img src="https://www.frenviro.net/wp-content/uploads/2018/06/logo1-1.png" alt="">
+                    </figure>
+                </div>
+                <div class="col">
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link btn bg-primary">
+                                <i class="fab fa-fw fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn bg-primary">
+                                <i class="fab fa-fw fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn bg-primary">
+                                <i class="fab fa-fw fa-twitter"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <?php
-                // Get value from options table
-                $theme_options = get_option('front_page_settings');
-
-                // Get get values from our varriable
-                $headerLinks = $theme_options['header_links'];
-
-                $contactNo = $headerLinks['contact_no'];
-                $emailAddress = $headerLinks['email_address'];
-                ?>
-                <ul class="list-inline">
-                    <li class="list-inline-item">
-                        <small>
-                            <strong>Contact us @</strong>                                                       
-                            <a href="Tel: <?php echo $contactNo; ?>"><?php echo $contactNo; ?></a>
-                        </small>
-                    </li>
-                    <li class="list-inline-item">|
-                    </li>
-                    <li class="list-inline-item">
-                        <small>
-                            <strong>Write us @</strong>
-                            <a href="mailto: <?php echo $emailAddress; ?>"><?php echo $emailAddress; ?></a>
-                        </small>
-                    </li>
-                </ul>
-                <?php 
-                    $menuArgs = array(
-                                    'menu' => 'primary',
-                                    'menu_class' => 'navbar-nav'
-                                );
-                    wp_nav_menu($menuArgs);
+                wp_nav_menu(array(
+                    'menu'    => 'Primary',
+                    'depth'             => 2,
+                    'container'         => 'div',
+                    'container_class'   => 'collapse navbar-collapse',
+                    'container_id'      => 'bs-example-navbar-collapse-1',
+                    'menu_class'        => 'nav navbar-nav',
+                    'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+                    'walker'            => new WP_Bootstrap_Navwalker(),
+                ));
                 ?>
             </div>
-        </div>
-    </nav>
-    
+        </nav>
+
+
+    </header>
