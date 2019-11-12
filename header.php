@@ -21,7 +21,7 @@
     <?php wp_head(); ?>
 </head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="90">
+<body>
 
     <header>
         <section class="bg-primary">
@@ -32,13 +32,13 @@
                             <li class="list-inline-item">
                                 <a href="tel:8003857105" class="text-white">
                                     <i class="fas fa-phone-alt fa-fw"></i>
-                                    800-385-7105
+                                    123-456-7890
                                 </a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="mailto:info@frenviro.com" class="text-white">
+                                <a href="mailto:email@gmail.com" class="text-white">
                                     <i class="fas fa-envelope fa-fw"></i>
-                                    info@frenviro.com
+                                    email@gmail.com
                                 </a>
                             </li>
                         </ul>
@@ -51,7 +51,7 @@
             <div class="row">
                 <div class="col-9">
                     <figure>
-                        <img src="https://www.frenviro.net/wp-content/uploads/2018/06/logo1-1.png" alt="">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="">
                     </figure>
                 </div>
                 <div class="col">
