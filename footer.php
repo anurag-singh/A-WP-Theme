@@ -20,7 +20,8 @@ as_debug();
                 </p>
             </div>
             <div class="col-2">
-                <a href="#" class="btn btn-outline-light btn-lg">Subscribe</a>
+                <!-- <a href="#" class="btn btn-outline-light btn-lg">Subscribe</a> -->
+                <?php echo do_shortcode('[modal-subscribe-form]'); ?>
             </div>
         </div>
     </div>
