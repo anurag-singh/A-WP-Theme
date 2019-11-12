@@ -1,4 +1,6 @@
 <?php
+// Fetch menu items and render theme as per you need
+
 $menu_name = 'Primary';
 $primary_menu_item_arr = wp_get_nav_menu_items($menu_name, $args = array());
 
