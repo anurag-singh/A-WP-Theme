@@ -72,10 +72,10 @@ function render_modal_subscription_form()
 
 // Ajax Request Handler
 function modal_ajax_request_handler() {
-    check_ajax_referer( 'subscribe-form-nonce', 'security' );
+    // check_ajax_referer( 'subscribe-form-nonce', 'security' );
 
     // The $_REQUEST contains all the data sent via ajax
-    if ( isset($_REQUEST) ) {
+    // if ( isset($_REQUEST) ) {
      
         $name = $_REQUEST['subscriberName'];
         $email = $_REQUEST['subscriberEmail'];
@@ -103,10 +103,10 @@ function modal_ajax_request_handler() {
         // If you're debugging, it might be useful to see what was sent in the $_REQUEST
         // print_r($_REQUEST);
      
-    }
+    // }
      
     // Always die in functions echoing ajax content
-   die();
+//    die();
 }
  
 add_action( 'wp_ajax_modal_ajax_request_handler', 'modal_ajax_request_handler' );

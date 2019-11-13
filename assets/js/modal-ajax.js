@@ -3,18 +3,23 @@ jQuery(document).ready(function($) {
     $("#submitSubscription").click(function(){
         
         // We'll pass this variable to the PHP function example_ajax_request
-        var subscriberName = $("#subscriberName").val();
-        var subscriberEmail = $("#subscriberEmail").val();
-        
+        dataPayload = {
+            action: 'modal_ajax_request_handler',
+            subscriberName : $("#subscriberName").val(),
+            subscriberEmail : $("#subscriberEmail").val()
+        }
+
         // alert("Name: " + subscriberName + " | Email: " + subscriberEmail);
         // This does the ajax request
         $.ajax({
+            type: "POST",                                               // POST | GET | PUT
+            dataType: "json",                                           // json | html | text | xml | script | jsonp
             url: ajax_obj.ajaxurl, // or example_ajax_obj.ajaxurl if using on frontend
-            data: {
-                'action': 'modal_ajax_request_handler',
-                'subscriberName' : subscriberName,
-                'subscriberEmail' : subscriberEmail
-            },
+            data: dataPayload,  
+
+            beforeSend: function(xhr) {
+                jQuery("#subscribe-form").html('<h4 class="text-info">Submiting!</h4>');
+              },
             success:function(result) {
                 // This outputs the result of the ajax request
                 str = JSON.stringify(result);
@@ -22,7 +27,12 @@ jQuery(document).ready(function($) {
                 console.log("result => " + str);
                 console.log("result.msg => " + result.msg);
 
-                jQuery("#subscribe-form").html(result.status);
+                if(result.status == 1) {
+                    jQuery("#subscribe-form").html('<h4 class="text-success">' + result.msg + '</h4>');
+                } else {
+                    jQuery("#subscribe-form").html('<h4 class="text-warning">There is some issues in form submission.</h4>');
+                }
+
             },
             error: function(errorThrown){
                 console.log(errorThrown);
