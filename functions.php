@@ -54,7 +54,7 @@ add_action( 'widgets_init', 'website_widgets_init' );
 function website_scripts() {
 	if (!is_admin()) {
 		wp_deregister_script('jquery');
-		wp_register_script('jquery', '//code.jquery.com/jquery-3.3.1.slim.min.js', true);
+		wp_register_script('jquery', '//code.jquery.com/jquery-3.4.1.min.js', true);
 		wp_enqueue_script('jquery');
 	}
 
@@ -103,6 +103,8 @@ require get_template_directory() . '/inc/as-admin-customizer.php';
  * Bootstrap Navwalker.
  */
 require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
+
+require_once get_template_directory() . '/lib/modal-contact-form.php';
 
 
 /**

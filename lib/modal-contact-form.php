@@ -1,27 +1,38 @@
 <?php
+add_action('wp_enqueue_scripts', 'modal_ajax_enqueue');
 function modal_ajax_enqueue()
 {
     // Enqueue javascript on the frontend.
-    wp_enqueue_script(
-        'modal-ajax-script',
-        get_template_directory_uri() . '/assets/js/modal-ajax.js',
-        array('jquery')
-    );
+    if (isset($_REQUEST['dev'])  && $_REQUEST['dev'] == 1) {
+        wp_enqueue_script(
+            'modal-ajax-script',
+            get_template_directory_uri() . '/assets/js/modal-ajax.js',
+            array('jquery'),
+            filemtime(get_stylesheet_directory() . '/assets/js/modal-ajax.js'),
+            true
+        );
+    } else {
+        wp_enqueue_script(
+            'modal-ajax-script',
+            get_template_directory_uri() . '/assets/js/modal-ajax.js',
+            array('jquery'),
+            null,
+            true
+        );
+    }
 
     // The wp_localize_script allows us to output the ajax_url path for our script to use.
     wp_localize_script(
         'modal-ajax-script',
         'ajax_obj',
         array(
-            'ajaxurl' => admin_url('admin-ajax.php'),
-            'security' => wp_create_nonce( 'subscribe-form-nonce' )
+            'ajaxurl' => admin_url('admin-ajax.php'),                       // set ajaxurl
+            'nonce' => wp_create_nonce('subscribe-form-nonce')              // set nonce
         )
     );
 }
-add_action('wp_enqueue_scripts', 'modal_ajax_enqueue');
 
 add_shortcode('modal-subscribe-form', 'render_modal_subscription_form');
-
 function render_modal_subscription_form()
 {
     //  Model - Button
@@ -40,12 +51,12 @@ function render_modal_subscription_form()
     $html .= '</button>';
     $html .= '</div>';
     $html .= '<div class="modal-body">';
-    $html .= '<form id="subscribe-form">';
+    $html .= '<form id="subscription-form">';
     $html .= '<div class="row">';
     $html .= '<div class="col">';
     $html .= '<div class="form-group">';
     $html .= '<label for="subscriberName" class="col-form-label">Full Name:</label>';
-    $html .= '<input type="text" class="form-control" id="subscriberName">';
+    $html .= '<input type="text" class="form-control" id="subscriberName" placeholder="First Last" required>';
     $html .= '</div>';
     $html .= '</div>';
     $html .= '</div>';
@@ -53,15 +64,25 @@ function render_modal_subscription_form()
     $html .= '<div class="col">';
     $html .= '<div class="form-group">';
     $html .= '<label for="subscriberEmail" class="col-form-label">Email:</label>';
-    $html .= '<input type="text" class="form-control" id="subscriberEmail">';
+    $html .= '<input type="email" class="form-control" id="subscriberEmail" placeholder="Email" required>';
     $html .= '</div>';
     $html .= '</div>';
     $html .= '</div>';
-    $html .= '</form>';
+    $html .= '<div class="row">';
+    $html .= '<div class="col">';
+    $html .= '<div class="form-group">';
+    $html .= '<div class="form-check">';
+    $html .= '<input type="checkbox" class="form-check-input" id="invalidCheck" required>';
+    $html .= '<label for="invalidCheck" class="form-check-label">Agree to terms and conditions <a href="#" target="_blank">Here</a></label>';
+    $html .= '</div>';
+    $html .= '</div>';
+    $html .= '</div>';
+    $html .= '</div>';
     $html .= '</div>';
     $html .= '<div class="modal-footer">';
-    $html .= '<button type="button" class="btn btn-primary" id="submitSubscription">Subscribe</button>';
+    $html .= '<button type="submit" class="btn btn-primary" id="submitSubscription">Subscribe</button>';
     $html .= '</div>';
+    $html .= '</form>';
     $html .= '</div>';
     $html .= '</div>';
     $html .= '</div>';
@@ -71,48 +92,38 @@ function render_modal_subscription_form()
 }
 
 // Ajax Request Handler
-function modal_ajax_request_handler() {
-    // check_ajax_referer( 'subscribe-form-nonce', 'security' );
+function modal_ajax_request_handler()
+{
+    $retrieved_nonce = $_REQUEST['security'];                               // get nonce
 
-    // The $_REQUEST contains all the data sent via ajax
-    // if ( isset($_REQUEST) ) {
-     
-        $name = $_REQUEST['subscriberName'];
-        $email = $_REQUEST['subscriberEmail'];
-         
+    if (!wp_verify_nonce($retrieved_nonce, 'subscribe-form-noncee')) :        // verify nounce
+
+        $name = $_REQUEST['subscriberName'];                                // fetch var
+        $email = $_REQUEST['subscriberEmail'];                              // fetch var
+
         // Let's take the data that was sent and do something with it
-        // if ( $fruit == 'Banana' ) {
-        //     $fruit = 'Apple';
-        // }
 
         $response = array(
-            'status'=>  1, 
+            'status' =>  1,
             'msg'   => 'Form submit successfully!',
             'data'  => array(
                 'name' => $name,
-                'email' => $email,
             )
         );
-     
-        // Now we willll return it to the javascript function
-        // Anything outputted will be returned in the response
-        echo json_encode($response);
-        exit;
-        // wp_send_json($response);
-         
-        // If you're debugging, it might be useful to see what was sent in the $_REQUEST
-        // print_r($_REQUEST);
-     
-    // }
-     
-    // Always die in functions echoing ajax content
-//    die();
+    else :
+        $response = array(
+            'status' =>  0,
+            'msg'   => 'Failed security check!',
+        );
+    endif;
+
+    wp_send_json($response);
 }
- 
-add_action( 'wp_ajax_modal_ajax_request_handler', 'modal_ajax_request_handler' );
- 
+
+add_action('wp_ajax_modal_ajax_request_handler', 'modal_ajax_request_handler');
+
 // If you wanted to also use the function for non-logged in users (in a theme for example)
-add_action( 'wp_ajax_nopriv_modal_ajax_request_handler', 'modal_ajax_request_handler' );
+add_action('wp_ajax_nopriv_modal_ajax_request_handler', 'modal_ajax_request_handler');
 
 // Ajax Request Handler
 ?>

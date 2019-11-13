@@ -1,10 +1,10 @@
 jQuery(document).ready(function($) {
 
-    $("#submitSubscription").click(function(){
-        
+    $("#subscription-form").submit(function(){
         // We'll pass this variable to the PHP function example_ajax_request
         dataPayload = {
             action: 'modal_ajax_request_handler',
+            security: ajax_obj.nonce,
             subscriberName : $("#subscriberName").val(),
             subscriberEmail : $("#subscriberEmail").val()
         }
@@ -18,7 +18,7 @@ jQuery(document).ready(function($) {
             data: dataPayload,  
 
             beforeSend: function(xhr) {
-                jQuery("#subscribe-form").html('<h4 class="text-info">Submiting!</h4>');
+                jQuery("#subscription-form").html('<h4 class="text-info">Submiting!</h4>');
               },
             success:function(result) {
                 // This outputs the result of the ajax request
@@ -28,9 +28,9 @@ jQuery(document).ready(function($) {
                 console.log("result.msg => " + result.msg);
 
                 if(result.status == 1) {
-                    jQuery("#subscribe-form").html('<h4 class="text-success">' + result.msg + '</h4>');
+                    jQuery("#subscription-form").html('<h4 class="text-success">' + result.msg + '</h4>');
                 } else {
-                    jQuery("#subscribe-form").html('<h4 class="text-warning">There is some issues in form submission.</h4>');
+                    jQuery("#subscription-form").html('<h4 class="text-warning">There is some issues in form submission.</h4>');
                 }
 
             },
