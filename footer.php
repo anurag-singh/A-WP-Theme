@@ -8,8 +8,6 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  */
-
-as_debug();
 ?>
 <section class="bg-success">
     <div class="container">

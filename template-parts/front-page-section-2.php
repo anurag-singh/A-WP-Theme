@@ -6,8 +6,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  */
-
-as_debug();
+show_file_path();
 ?>
 
 <?php

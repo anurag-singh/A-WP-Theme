@@ -6,15 +6,15 @@ function modal_ajax_enqueue()
     if (isset($_REQUEST['dev'])  && $_REQUEST['dev'] == 1) {
         wp_enqueue_script(
             'modal-ajax-script',
-            get_template_directory_uri() . '/assets/js/modal-ajax.js',
+            get_template_directory_uri() . '/assets/js/modal-contact-form.js',
             array('jquery'),
-            filemtime(get_stylesheet_directory() . '/assets/js/modal-ajax.js'),
+            filemtime(get_stylesheet_directory() . '/assets/js/modal-contact-form.js'),
             true
         );
     } else {
         wp_enqueue_script(
             'modal-ajax-script',
-            get_template_directory_uri() . '/assets/js/modal-ajax.js',
+            get_template_directory_uri() . '/assets/js/modal-contact-form.js',
             array('jquery'),
             null,
             true
