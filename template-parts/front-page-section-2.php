@@ -6,7 +6,9 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  */
-show_file_path();
+if( isset($_REQUEST['dev']) && (1 == $_REQUEST['dev']) ):
+	show_file_path();
+endif;
 ?>
 
 <?php
