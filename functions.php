@@ -3,6 +3,13 @@
 /**
  * Website functions and definitions
  */
+/**
+ * This theme only works in WordPress 4.7 or later.
+ */
+if (version_compare($GLOBALS['wp_version'], '4.7', '<')) {
+	require get_template_directory() . '/inc/back-compat.php';
+	return;
+}
 
 if (!function_exists('website_setup')) :
 	function website_setup()
@@ -11,8 +18,7 @@ if (!function_exists('website_setup')) :
 
 		add_theme_support('title-tag');
 		add_theme_support('post-thumbnails');
-
-
+		set_post_thumbnail_size(1568, 9999);
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
@@ -25,10 +31,22 @@ if (!function_exists('website_setup')) :
 			// 'gallery',
 			'caption',
 		));
+
+		/**
+		 * Add support for core custom logo
+		 */
+		add_theme_support(
+			'custom-logo',
+			array(
+				'height'      => 190,
+				'width'       => 190,
+				'flex-width'  => false,
+				'flex-height' => false,
+			)
+		);
 	}
 endif;
 add_action('after_setup_theme', 'website_setup');
-
 
 /**
  * Enqueue scripts and styles.
@@ -40,7 +58,6 @@ function website_scripts()
 		wp_register_script('jquery', '//code.jquery.com/jquery-3.4.1.min.js', true);
 		wp_enqueue_script('jquery');
 	}
-
 
 	// Stylesheets
 	wp_enqueue_style('bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', false, null);
@@ -105,7 +122,6 @@ require_once get_template_directory() . '/lib/modal-contact-form/modal-contact-f
 
 // require_once get_template_directory() . '/lib/contact-form-jquery-validation-recaptcha/contact-form-jquery-validation-recaptcha.php';
 
-
 /**
  * Load Jetpack compatibility file.
  */
@@ -117,16 +133,12 @@ if (defined('JETPACK__VERSION')) {
 // require get_template_directory() . '/inc/custom-widget.php';
 // require get_template_directory() . '/inc/custom-widget-google-map.php';
 
-add_filter('use_block_editor_for_post', '__return_false', 10); // remove Gutenberg editor support
-
-
 function post_type_support_init()
 {
 	remove_post_type_support('post', 'custom-fields');
 	remove_post_type_support('page', 'custom-fields');
 }
 add_action('init', 'post_type_support_init');
-
 
 // add_image_size( '310x310', 310, 310 );
 // add_image_size( '100x100', 100, 100 );

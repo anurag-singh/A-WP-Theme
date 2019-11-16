@@ -110,7 +110,7 @@ function disable_emojis_tinymce($plugins)
 
 
 // add async and defer attributes to enqueued scripts
-add_filter('script_loader_tag', 'as_add_async_defer_tags', 10, 2);
+// add_filter('script_loader_tag', 'as_add_async_defer_tags', 10, 2);
 function as_add_async_defer_tags($tag, $handle)
 {
     if ($handle != 'jquery' && !is_admin()) {               // exclude jquery and wp admin pages
