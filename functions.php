@@ -101,9 +101,9 @@ if (isset($_REQUEST['dev'])  && $_REQUEST['dev'] == 1) {
  */
 require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 
-require_once get_template_directory() . '/lib/modal-contact-form.php';
+require_once get_template_directory() . '/lib/modal-contact-form/modal-contact-form.php';
 
-require_once get_template_directory() . '/lib/contact-form-jquery-validation-recaptcha/contact-form-jquery-validation-recaptcha.php';
+// require_once get_template_directory() . '/lib/contact-form-jquery-validation-recaptcha/contact-form-jquery-validation-recaptcha.php';
 
 
 /**

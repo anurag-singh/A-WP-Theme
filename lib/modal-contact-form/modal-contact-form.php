@@ -3,23 +3,13 @@ add_action('wp_enqueue_scripts', 'modal_ajax_enqueue');
 function modal_ajax_enqueue()
 {
     // Enqueue javascript on the frontend.
-    if (isset($_REQUEST['dev'])  && $_REQUEST['dev'] == 1) {
-        wp_enqueue_script(
-            'modal-ajax-script',
-            get_template_directory_uri() . '/assets/js/modal-contact-form.js',
-            array('jquery'),
-            filemtime(get_stylesheet_directory() . '/assets/js/modal-contact-form.js'),
-            true
-        );
-    } else {
-        wp_enqueue_script(
-            'modal-ajax-script',
-            get_template_directory_uri() . '/assets/js/modal-contact-form.js',
-            array('jquery'),
-            null,
-            true
-        );
-    }
+    wp_enqueue_script(
+        'modal-ajax-script',
+        get_template_directory_uri() . '/lib/modal-contact-form/assets/js/modal-contact-form.js',
+        array('jquery'),
+        null,
+        true
+    );
 
     // The wp_localize_script allows us to output the ajax_url path for our script to use.
     wp_localize_script(
