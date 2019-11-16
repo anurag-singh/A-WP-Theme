@@ -37,7 +37,7 @@
             <div class="row">
                 <div class="col-9">
                     <figure>
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="">
+                        <!-- <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt=""> -->
                     </figure>
                 </div>
                 <div class="col">
