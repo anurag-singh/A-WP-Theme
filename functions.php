@@ -109,18 +109,18 @@ require get_template_directory() . '/inc/as-admin-customizer.php';
 /**
  * Debugging functions.
  */
-if (isset($_REQUEST['dev'])  && $_REQUEST['dev'] == 1) {
-	require get_template_directory() . '/inc/as-debugging-functions.php';
-}
+require get_template_directory() . '/inc/as-debugging-functions.php';
 
 /**
  * Bootstrap Navwalker.
  */
 require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 
-require_once get_template_directory() . '/lib/modal-contact-form/modal-contact-form.php';
+// require_once get_template_directory() . '/lib/modal-contact-form/modal-contact-form.php';
 
 // require_once get_template_directory() . '/lib/contact-form-jquery-validation-recaptcha/contact-form-jquery-validation-recaptcha.php';
+
+require_once get_template_directory() . '/lib/frontend-crud-oprations-with-jwt-ajax/frontend-crud-oprations-with-jwt-ajax.php';
 
 /**
  * Load Jetpack compatibility file.
