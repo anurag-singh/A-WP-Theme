@@ -8,7 +8,7 @@ if (!function_exists('website_setup')) :
 	function website_setup()
 	{
 		load_theme_textdomain('website', get_template_directory() . '/languages');
-
+		add_theme_support('custom-logo');
 		add_theme_support('title-tag');
 		add_theme_support('post-thumbnails');
 
