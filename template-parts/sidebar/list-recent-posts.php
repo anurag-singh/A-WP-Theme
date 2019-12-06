@@ -5,7 +5,7 @@ $recent_posts = wp_get_recent_posts(array(
 ));
 
 ?>
-<div class="widget bg-light">
+<div class="bg-light">
     <h5 class="py-2 text-center">Recent Posts</h5>
 
     <?php
@@ -16,9 +16,9 @@ $recent_posts = wp_get_recent_posts(array(
                 <div class="row">
                     <div class="col-md-4">
                         <?php if (has_post_thumbnail($post['ID'])) :
-                                    echo get_the_post_thumbnail($post['ID'], 'thumbnail');
+                                    echo get_the_post_thumbnail($post['ID'], 'thumbnail', array('class' => 'img-fluid card-image', 'alt' => $post['post_title'], 'title' => $post['post_title']));
                                 else :
-                                    echo '<img src="https://via.placeholder.com/136x136.png?text=Dummy+Image" alt="image" class="img-fluid card-image">';
+                                    echo '<img src="https://via.placeholder.com/136x136.png?text=Dummy+Image" alt="' . $post['post_title'] . '" title="' . $post['post_title'] . '" class="img-fluid card-image">';
                                 endif;
                                 ?>
                     </div>
@@ -29,11 +29,6 @@ $recent_posts = wp_get_recent_posts(array(
                                     <?php echo $post['post_title'] ?>
                                 </a>
                             </h6>
-                            <p class="card-text">
-                                <span class="date">
-                                    <?php echo get_the_date('F j, Y', $post['ID']); ?>
-                                </span>
-                            </p>
                         </div>
                     </div>
                 </div>
