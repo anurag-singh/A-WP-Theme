@@ -9,22 +9,24 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <section class="container">
-                <!-- Logo -->
-                <a class="navbar-brand" href="#">
-                    <?php if (has_custom_logo()) :
-                        $site_name = get_bloginfo('name');
-                        $site_logo_id = get_theme_mod('custom_logo');
-                        $logo_src = wp_get_attachment_image_src($site_logo_id, 'full')[0];
-                        echo '<img src="' . $logo_src . '" width="50" height="50" alt="' . $site_name . '">';
-                    endif; ?>
-                </a>
-                <!-- Logo -->
+    <?php wp_body_open(); ?>
+    <header id="site-header">
+        <nav class="navbar navbar-expand-lg nav-icon border-bottom border-white shadow-sm bg-light" role="navigation">
+            <div class="container">
+                <?php if (has_custom_logo()) : ?>
+                    <div class="site-logo"><?php //the_custom_logo(); ?></div>
+                <?php endif; ?>
+                <?php $blog_info = get_bloginfo('name'); ?>
+                <?php if (!empty($blog_info)) : ?>
+                    <?php if (is_front_page() && is_home()) : ?>
+                        <h1 class="navbar-brand"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
+                    <?php else : ?>
+                        <h1 class="navbar-brand"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
+                    <?php endif; ?>
+                <?php endif; ?>
 
-                <!-- Navigation -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#primary-menu" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <?php
@@ -33,14 +35,14 @@
                     'depth'             => 2,
                     'container'         => 'div',
                     'container_class'   => 'collapse navbar-collapse',
-                    'container_id'      => 'navbarSupportedContent',
-                    'menu_class'        => 'navbar-nav ml-auto',
+                    'container_id'      => 'primary-menu',
+                    'menu_class'        => 'nav navbar-nav ml-auto',
                     'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
                     'walker'            => new WP_Bootstrap_Navwalker(),
                 ));
                 ?>
-                <!-- Navigation -->
-            </section>
+            </div>
         </nav>
+
 
     </header>

@@ -27,9 +27,9 @@ add_shortcode('wp-post-crud', 'render_post_crud_form');
 function render_post_crud_form()
 {
     $html = '';
-    $html .= '<button type="submit" class="btn btn-primary" id="getAllPosts">Get all posts</button>';
-    $html .= '<button type="submit" class="btn btn-primary" id="getToken">Get Token</button>';
-    $html .= '<button type="submit" class="btn btn-primary" id="addPost">Add a Post</button>';
+    $html .= '<a class="btn btn-primary" id="getAllPosts">Get all posts</a>';
+    $html .= '<a class="btn btn-primary" id="getToken">Get Token</a>';
+    $html .= '<a class="btn btn-primary" id="addPost">Add a Post</a>';
     $html .= '<div class="container">';
     $html .= '<div class="row">';
     $html .= '<div class="col">';

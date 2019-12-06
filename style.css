@@ -1,43 +1,102 @@
 /*
 Theme Name: A WP Theme 
 Theme URI: #
-Template: twentynineteen
 Author: Anurag
 Author URI: https://github.com/anurag-singh/
 Description: A WP theme
 Version: 1.0
 Text Domain: a-wp-theme
 */
-.bg-primary, .btn-primary {
-            background-color: #a2c046 !important;
-        }
 
-.btn-primary {
-    border-color: #a2c046 !important;
+* {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
-    .card-img-as {
-    height: 60%;
-    position: relative;
-    overflow: hidden;
-    
-    margin-left: 25%;
-    margin-right: 25%;
-    /* margin-left: 60px;
-    margin-right: 60px; */
-    margin-top: -60px;
-    border-radius: 6px;
-    box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
-}
-.card-img-as img {
-    width: 100%;
-    height: 100%;
-    border-radius: 6px;
-    pointer-events: none;
+.primary-gradient-radial {
+	/* ref- https://cssgradient.io */
+	background: rgb(248, 255, 0);
+	background: -moz-radial-gradient(
+		circle,
+		rgba(248, 255, 0, 1) 0%,
+		rgba(58, 213, 159, 1) 100%
+	);
+	background: -webkit-radial-gradient(
+		circle,
+		rgba(248, 255, 0, 1) 0%,
+		rgba(58, 213, 159, 1) 100%
+	);
+	background: radial-gradient(
+		circle,
+		rgba(248, 255, 0, 1) 0%,
+		rgba(58, 213, 159, 1) 100%
+	);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f8ff00",endColorstr="#3ad59f",GradientType=1);
 }
 
-.text-img-overlay{
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+.secondary-gradient-radial {
+	background: rgb(58, 213, 159);
+	background: -moz-radial-gradient(
+		circle,
+		rgba(58, 213, 159, 1) 0%,
+		rgba(248, 255, 0, 1) 100%
+	);
+	background: -webkit-radial-gradient(
+		circle,
+		rgba(58, 213, 159, 1) 0%,
+		rgba(248, 255, 0, 1) 100%
+	);
+	background: radial-gradient(
+		circle,
+		rgba(58, 213, 159, 1) 0%,
+		rgba(248, 255, 0, 1) 100%
+	);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3ad59f",endColorstr="#f8ff00",GradientType=1);
+}
+
+.primary-gradient-liner {
+	background: rgb(248, 255, 0);
+	background: -moz-linear-gradient(
+		150deg,
+		rgba(248, 255, 0, 1) 0%,
+		rgba(58, 213, 159, 1) 75%
+	);
+	background: -webkit-linear-gradient(
+		150deg,
+		rgba(248, 255, 0, 1) 0%,
+		rgba(58, 213, 159, 1) 75%
+	);
+	background: linear-gradient(
+		150deg,
+		rgba(248, 255, 0, 1) 0%,
+		rgba(58, 213, 159, 1) 75%
+	);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f8ff00",endColorstr="#3ad59f",GradientType=1);
+}
+
+.secondary-gradient-liner {
+	background: rgb(58, 213, 159);
+	background: -moz-linear-gradient(
+		150deg,
+		rgba(58, 213, 159, 1) 0%,
+		rgba(248, 255, 0, 1) 75%
+	);
+	background: -webkit-linear-gradient(
+		150deg,
+		rgba(58, 213, 159, 1) 0%,
+		rgba(248, 255, 0, 1) 75%
+	);
+	background: linear-gradient(
+		150deg,
+		rgba(58, 213, 159, 1) 0%,
+		rgba(248, 255, 0, 1) 75%
+	);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3ad59f",endColorstr="#f8ff00",GradientType=1);
+}
+
+#site-header.in-view {
+	opacity: 1;
+	visibility: visible;
+	transition: all 0.3s ease;
+	transform: translate(0, 0);
 }
