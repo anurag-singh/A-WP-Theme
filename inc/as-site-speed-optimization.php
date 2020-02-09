@@ -109,16 +109,71 @@ function disable_emojis_tinymce($plugins)
 }
 
 
-// add async and defer attributes to enqueued scripts
-add_filter('script_loader_tag', 'as_add_async_defer_tags', 10, 2);
-function as_add_async_defer_tags($tag, $handle)
+/**
+ * Print all registered styles and scripts
+ */
+add_action('wp_print_scripts', 'print_all_registered_scripts');
+function print_all_registered_scripts()
+{
+    // Print all loaded Scripts
+    global $wp_scripts;
+    echo  '------- </br> ';
+    echo  'Scripts </br> ------- </br> ';
+    foreach ($wp_scripts->queue as $script) :
+        echo $script . '</br>';
+    endforeach;
+
+    // Print all loaded Styles (CSS)
+    global $wp_styles;
+    echo  '</br> ------- </br> ';
+    echo  'Styles </br> ------- </br> ';
+    foreach ($wp_styles->queue as $style) :
+        echo $style . '</br>';
+    endforeach;
+
+    echo  '</br> ------- </br> ';
+}
+
+
+/**
+ * Add 'defer' in given script tag
+ */
+add_filter('script_loader_tag', 'add_defer_attribute_in_scripts', 10, 2);
+function add_defer_attribute_in_scripts($tag, $handle)
 {
     if ($handle != 'jquery' && !is_admin()) {               // exclude jquery and wp admin pages
-        if (false === stripos($tag, 'async')) {
-            $tag = str_replace(' src', ' async="async" src', $tag);
+        // add script handles to the array below
+        $scripts_to_defer = array(
+            'first-handle',
+            'another-handle'
+        );
+
+        foreach ($scripts_to_defer as $defer_script) {
+            if ($defer_script === $handle) {
+                return str_replace(' src', ' defer="defer" src', $tag);
+            }
         }
-        if (false === stripos($tag, 'defer')) {
-            $tag = str_replace('<script ', '<script defer ', $tag);
+    }
+    return $tag;
+}
+
+/**
+ * Add 'async' in given script tag
+ */
+add_filter('script_loader_tag', 'add_async_attribute_in_scripts', 10, 2);
+function add_async_attribute_in_scripts($tag, $handle)
+{
+    if ($handle != 'jquery' && !is_admin()) {               // exclude jquery and wp admin pages
+        // add script handles to the array below
+        $scripts_to_async = array(
+            'first-handle',
+            'another-handle'
+        );
+
+        foreach ($scripts_to_async as $async_script) {
+            if ($async_script === $handle) {
+                return str_replace(' src', ' async="async" src', $tag);
+            }
         }
     }
     return $tag;
