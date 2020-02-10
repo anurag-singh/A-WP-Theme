@@ -112,7 +112,7 @@ function disable_emojis_tinymce($plugins)
 /**
  * Print all registered styles and scripts
  */
-add_action('wp_print_scripts', 'print_all_registered_scripts');
+// add_action('wp_print_scripts', 'print_all_registered_scripts');
 function print_all_registered_scripts()
 {
     // Print all loaded Scripts

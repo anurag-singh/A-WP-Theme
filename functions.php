@@ -82,6 +82,8 @@ require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 
 require_once get_template_directory() . '/lib/modal-contact-form.php';
 
+require_once get_template_directory() . '/lib/load-content-on-scroll/index.php';
+
 
 /**
  * Load Jetpack compatibility file.
